@@ -12,39 +12,35 @@
     <h1>
         Liberação para acesso
     </h1>
-    <p>
+    <label for="nome">
         Nome completo:
-    </p>
-    <input type="text" name="" id="nome">
-    <br>
-    <br>
+        <input type="text" name="nome" id="nome" />
+    </label>
+    <br><br>
+    <label for="dataNascimento">
+        Data de Nascimento:
+        <input type="date" name="dataNascimento" id="dataNascimento" />
+    </label>
+    <br><br>
+    <button onclick="Idade()"> OK </button>
+    <script>
+        function Idade() {
+            let nome = document.getElementById(nome)
+            let dataNascimento = document.getElementById(dataNascimento)
+            let hoje = new Date()
+            let anoAtual = hoje.getFullYear()
+            let anoNascimento = dataNascimento.split('/')[2]
+            let idade = anoAtual - anoNascimento
 
-    <p>
-        Data de nascimento:
-    </p>
-    <input type="date" name="" id="dataNascimento">
-        <br>
-        <br>
-
-        <script>
-            function Idade(Data) {
-                const nome = InputDeviceInfo.nome
-                let dataNascimento = InputDeviceInfo.dataNascimento
-                let hoje = new Date()
-                let anoAtual = hoje.getFullYear
-                let anoNascimento = dataNascimento.getFullYear
-                let idade = anoAtual - anoNascimento
-
-                switch (idade) {
-                    case idade < 18:
-                        result = alert('Acesso Negado! Usuário menor de idade.')
-                        break;
-                    default:
-                        alertalert('Acesso Autorizado!')
-                        break;
-                }
+            if (idade < 0) {
+                alert('Idade Inválida!')
+            } else if (idade >= 0 && idade < 18) {
+                alert('`${nome}`, Seu acesso foi negado! Usuário menor de idade.')
+            } else (idade >= 18) ;{
+                alert('`${nome}`, Seu acesso foi autorizado! Usuário maior de idade.')
             }
-        </script>
+        }
+    </script>
 
 </body>
 
