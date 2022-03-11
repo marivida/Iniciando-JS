@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Idade</title>
-</head>
+  </head>
 
-<body>
-    <h1>
-        Liberação para acesso
-    </h1>
+  <body>
+    <h1>Liberação para acesso</h1>
+
     <label for="nome">
-        Nome completo:
-        <input type="text" name="nome" id="nome" />
+      Nome completo:
+      <input type="text" name="nome" id="nome" />
     </label>
-    <br><br>
+
+    <br /><br />
+
     <label for="dataNascimento">
-        Data de Nascimento:
-        <input type="date" name="dataNascimento" id="dataNascimento" />
+      Data de Nascimento:
+      <input type="date" name="dataNascimento" id="dataNascimento" />
     </label>
-    <br><br>
-    <button onclick="Idade()"> OK </button>
+
+    <br /><br />
+
+    <button onclick="Idade()">OK</button>
+
     <script>
-        function Idade() {
-            let nome = document.getElementById(nome)
-            let dataNascimento = document.getElementById(dataNascimento)
-            let hoje = new Date()
-            let anoAtual = hoje.getFullYear()
-            let anoNascimento = dataNascimento.split('/')[2]
-            let idade = anoAtual - anoNascimento
+      function Idade() {
+        let nome = document.getElementById("nome").value;
+        let dataNascimento = document.getElementById("dataNascimento").value;
 
-            if (idade < 0) {
-                alert('Idade Inválida!')
-            } else if (idade >= 0 && idade < 18) {
-                alert('`${nome}`, Seu acesso foi negado! Usuário menor de idade.')
-            } else (idade >= 18) ;{
-                alert('`${nome}`, Seu acesso foi autorizado! Usuário maior de idade.')
-            }
+        let hoje = new Date();
+        let anoAtual = hoje.getFullYear();
+
+        let anoNascimento = Number(dataNascimento.split("-")[0]);
+        let idade = anoAtual - anoNascimento;
+
+        if (idade < 0) {
+          alert("Idade Inválida!");
+        } else if (idade >= 0 && idade < 18) {
+          alert(`${nome}, Seu acesso foi negado! Usuário menor de idade.`);
+        } else {
+          alert(`${nome}, Seu acesso foi autorizado! Usuário maior de idade.`);
         }
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
