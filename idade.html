@@ -5,26 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Idade</title>
+
+    <style>
+      button {
+        color: #8b008b;
+        background-color: black;
+        border-color: black;
+        border-radius: 3px;
+      }
+
+      button.btn-success {
+        background-color: green;
+        border-color: green;
+      }
+
+      label {
+        font-size: 40px;
+      }
+
+      .formulario {
+        text-align: center;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>Liberação para acesso</h1>
+    <div class="formulario">
+      <h1>Liberação para acesso</h1>
 
-    <label for="nome">
-      Nome completo:
-      <input type="text" name="nome" id="nome" />
-    </label>
+      <label for="nome">
+        Nome completo:
+        <input type="text" name="nome" id="nome" />
+      </label>
 
-    <br /><br />
+      <br /><br />
 
-    <label for="dataNascimento">
-      Data de Nascimento:
-      <input type="date" name="dataNascimento" id="dataNascimento" />
-    </label>
+      <label for="dataNascimento">
+        Data de Nascimento:
+        <input type="date" name="dataNascimento" id="dataNascimento" />
+      </label>
 
-    <br /><br />
+      <br /><br />
 
-    <button onclick="Idade()">OK</button>
+      <button onclick="Idade()" class="btn-success">OK</button>
+      <!-- Verde -->
+
+      <button class="btn-error">Limpar Formulario</button>
+      <!-- Vermelho -->
+    </div>
 
     <script>
       function Idade() {
@@ -35,6 +63,10 @@
         let anoAtual = hoje.getFullYear();
 
         let anoNascimento = Number(dataNascimento.split("-")[0]);
+
+        // let dataNascimentoData = new Date(dataNascimento);
+        // let anoNascimento = dataNascimentoData.getFullYear();
+
         let idade = anoAtual - anoNascimento;
 
         if (idade < 0) {
