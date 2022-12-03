@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form id="cadastrarAluno">
+    <label for="nome">
+      Nome do aluno:
+      <input type="text" name="nome" id="nome">
+    </label>
+
+    <label for="nascimento">
+      Data de Nascimento:
+      <input type="date" name="nascimento" id="nascimento">
+    </label>
+
+    <label for="ra">
+      RA:
+      <input type="text" name="ra" id="ra">
+    </label>
+
+    <button type="submit">Salvar</button>
+  </form>
+<ul id="listaAlunos"></ul>
+
+  <script>
+
+    function cadastrarAluno(e) {
+        e.preventDefault()
+        const nome = document.getElementById('nome').value
+        const data = document.getElementById('nascimento').value
+        const ra = document.getElementById('ra').value
+        //console.log({nome, data, ra})
+        const aluno = {
+            nome, data, ra
+        }
+       // console.log(aluno)
+        listarAlunosHTML(aluno)
+    }
+
+    function listarAlunosHTML(aluno) {
+        const listaAlunosHTML = document.getElementById('listaAlunos')
+        listaAlunosHTML.innerHTML += `<li> ${aluno.nome} - ${aluno.data} - ${aluno.ra}</li>` 
+
+    }
+
+    document
+        .getElementById('cadastrarAluno')
+        .addEventListener('submit', cadastrarAluno)
+
+  </script>
+
+</body>
+
+</html>
